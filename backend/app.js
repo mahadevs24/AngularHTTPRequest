@@ -38,7 +38,7 @@ app.get("/user-places", async (req, res) => {
 
 app.put("/user-places", async (req, res) => {
   const placeId = req.body.placeId;
-
+  // return res.status(500).json({ message: 'Simulated server error' });
   const fileContent = await fs.readFile("./data/places.json");
   const placesData = JSON.parse(fileContent);
 

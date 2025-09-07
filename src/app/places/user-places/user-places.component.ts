@@ -30,12 +30,20 @@ export class UserPlacesComponent implements OnInit {
         //   this.places.set(resData.places)
 
         // },
+        
         complete: () => {
           this.isFetching.set(false);
         },
       }
       )
     this.destroyRef.onDestroy(() => { subscription.unsubscribe() })
+    
   }
+  onSelectPlace(place:Place) {
+      console.log(place.id); 
+       const subscription = this.placeService.removeUserPlace(place).subscribe();
+
+       this.destroyRef.onDestroy(()=>{ subscription.unsubscribe()})
+    }
 }
 
